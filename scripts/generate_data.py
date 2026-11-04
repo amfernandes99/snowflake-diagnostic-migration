@@ -14,7 +14,7 @@ for i in range(100):
         "vehicle_id": f"VEH{i % 20 + 1:03d}",
         "did_id": f"DID_{i % 3 + 1:03d}",
         "did_value": random.randint(10, 100),
-        "recorded_at": (start_date + timedelta(hours=i)).isoformat()
+        "recorded_at": (start_date + timedelta(hours=i)).strftime("%Y-%m-%d %H:%M:%S")
     }
 
     records.append(record)
