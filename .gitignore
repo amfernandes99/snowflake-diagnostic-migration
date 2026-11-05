@@ -1,7 +1,18 @@
+# Python
 .venv/
 __pycache__/
+*.pyc
+
+# Environment variables and credentials
 .env
 .env.*
-logs/
+profiles.yml
+
+# dbt generated files
 target/
 dbt_packages/
+logs/
+
+# Local editor files
+.vscode/
+
