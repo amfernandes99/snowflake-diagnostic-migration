@@ -15,3 +15,6 @@ jobs:
 
       - name: Check Python syntax
         run: python -m compileall -q scripts run_pipeline.py
+
+      - name: Generate synthetic data
+        run: python scripts/generate_data.py
