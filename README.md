@@ -76,6 +76,8 @@ For the migration checks, I used SQL MINUS queries to compare the datasets in bo
 
 All seven tests passed using the generated dataset of 100 records.
 
+I also tested the validation process by deliberately changing a diagnostic value in the replacement dataset. Both migration comparison tests detected the mismatch, while the remaining five tests passed. After restoring the original data, all seven tests passed again.
+
 ## What I've Learned
 - This project has helped me put what I've learned through Snowflake and dbt training into practice.
 - In particular, I've gained more experience with creating Snowflake tables and views, defining dbt sources and models, and using automated tests to validate data.
@@ -101,7 +103,6 @@ A local `.env` file containing Snowflake credentials and a configured dbt profil
 
 - Implement CI/CD for dbt models and tests
 - Expand the synthetic data to include diagnostic trouble codes (DTCs)
-- Test how the pipeline handles missing or incorrect data
 
 ## Note
 - All diagnostic data used in this project is fictional and generated specifically for this repository. No internal company data, code or confidential information has been used.
