@@ -30,11 +30,13 @@ Finally, I implemented seven automated dbt tests to validate data quality and co
 
 ## Technologies Used
 
-- Python - Synthetic data generation and automated Snowflake ingestion 
-- Snowflake - Stored and queried the diagnostic data 
-- SQL - Transformed and compared the datasets 
-- dbt - Built the transformation model and automated tests 
-- Git / GitHub - Version control and project documentation 
+- Python - Synthetic data generation and automated Snowflake ingestion
+- Snowflake - Stored and queried the diagnostic data
+- SQL - Transformed and compared the datasets
+- dbt - Built the transformation model and automated tests
+- Streamlit - Visualised the datasets and migration validation results
+- Git / GitHub - Version control and project documentation
+- GitHub Actions - Automated Python syntax and data generation checks
 
 ## Data Transformation
 
@@ -83,26 +85,51 @@ I also tested the validation process by deliberately changing a diagnostic value
 - In particular, I've gained more experience with creating Snowflake tables and views, defining dbt sources and models, and using automated tests to validate data.
 - It's also helped me understand how important data validation is when replacing an existing data source. Getting the columns right is only part of the problem; the data itself needs to be consistent too.
 
+## Streamlit Dashboard
+
+- I built a Streamlit dashboard to visualise the migration results using data retrieved directly from Snowflake.
+- The dashboard displays the legacy and transformed replacement datasets, along with the number of matching and mismatching records.
+- It also displays a validation status to indicate whether the two datasets match.
+- I tested this by deliberately changing a diagnostic value in Snowflake. The dashboard detected the mismatch and displayed a failed validation status. After restoring the original data, validation passed again.
+
+
+![Streamlit Migration Dashboard](screenshots/dashboard.png)
+
+
 ## Running the Pipeline
+
+Install the required Python packages:
+
+```bash
+python -m pip install -r requirements.txt
+```
 
 The full pipeline can be executed from the project root using:
 
-``` python run_pipeline.py ```
+```bash
+python run_pipeline.py
+```
 
-This will run the following steps:
-
-1. Generateing the synthetic diagnostic datasets.
-2. Uploading both datasets into Snowflake.
-3. Building the dbt model and runs all seven validation tests.
+This will:
+1. Generate the synthetic diagnostic datasets.
+2. Upload both datasets into Snowflake.
+3. Build the dbt model and run all seven validation tests.
 
 The pipeline stops if any step fails.
 
-A local `.env` file containing Snowflake credentials and a configured dbt profile are required.
+To launch the Streamlit dashboard:
 
-## Next Steps
+```bash
+python -m streamlit run dashboard/app.py
+```
 
-- Implement CI/CD for dbt models and tests
-- Expand the synthetic data to include diagnostic trouble codes (DTCs)
+A local `.env` file containing Snowflake credentials, a configured dbt profile and the required Snowflake database objects are needed.
+
+## Potential Improvements
+- Extend GitHub Actions to run dbt validation tests.
+- Improve the migration comparison to handle duplicate records.
+- Explore incremental data loading instead of replacing the full dataset each time.
 
 ## Note
 - All diagnostic data used in this project is fictional and generated specifically for this repository. No internal company data, code or confidential information has been used.
+
