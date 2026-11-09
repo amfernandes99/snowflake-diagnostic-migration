@@ -1,0 +1,16 @@
+# A template for the dbt connection profile. No real values here.
+# Copy to ~/.dbt/profiles.yml 
+
+diagnostic_migration:
+  target: dev
+  outputs:
+    dev:
+      type: snowflake
+      account: "{{ env_var('SNOWFLAKE_ACCOUNT') }}"
+      user: "{{ env_var('SNOWFLAKE_USER') }}"
+      password: "{{ env_var('SNOWFLAKE_PASSWORD') }}"
+      role: "{{ env_var('SNOWFLAKE_ROLE') }}"
+      warehouse: "{{ env_var('SNOWFLAKE_WAREHOUSE') }}"
+      database: AUTOMOTIVE_DB
+      schema: ANALYTICS
+      threads: 4
