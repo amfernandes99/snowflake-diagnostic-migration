@@ -43,7 +43,7 @@ Finally, I implemented seven automated dbt tests to validate data quality and co
 The two datasets use different column names:
 
 | Legacy System | Replacement Platform |
-
+| --- | --- |
 | VEHICLE_ID | ASSET_REF |
 | DID_ID | DIAGNOSTIC_CODE |
 | DID_VALUE | MEASUREMENT |
