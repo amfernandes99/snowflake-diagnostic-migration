@@ -95,6 +95,15 @@ I also tested the validation process by deliberately changing a diagnostic value
 
 ![Streamlit Migration Dashboard](screenshots/dashboard.png)
 
+## Setup
+
+1. Run `sql/01_setup.sql` and `sql/02_create_tables.sql` in Snowflake to create the database, schemas, stage and tables.
+2. Copy `.env.example` to `.env` and add your Snowflake credentials.
+3. Copy `diagnostic_migration/profiles.yml.example` to `~/.dbt/profiles.yml`.
+4. Export the variables from `.env` in your terminal, because dbt doesn't read `.env` files.
+5. Install the dbt package with `dbt deps --project-dir diagnostic_migration`.
+
+You can check the connection with `python scripts/test_connection.py` and `dbt debug --project-dir diagnostic_migration`.
 
 ## Running the Pipeline
 
@@ -123,7 +132,6 @@ To launch the Streamlit dashboard:
 python -m streamlit run dashboard/app.py
 ```
 
-A local `.env` file containing Snowflake credentials, a configured dbt profile and the required Snowflake database objects are needed.
 
 ## Potential Improvements
 - Extend GitHub Actions to run dbt validation tests.
