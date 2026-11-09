@@ -1,4 +1,4 @@
-
+-- To extract data from the legacy diagnostics table and the replacement diagnostics table in the AUTOMOTIVE_DB database
 SELECT *
 FROM AUTOMOTIVE_DB.RAW.LEGACY_DIAGNOSTICS
 ORDER BY VEHICLE_ID, RECORDED_AT;

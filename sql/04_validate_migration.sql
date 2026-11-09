@@ -1,4 +1,4 @@
-# Comparing the legacy and replacement diagnostics tables. Results should be empty if the migration was successful.
+-- Comparing the legacy and replacement diagnostics tables. Results should be empty if the migration was successful.
 SELECT
     VEHICLE_ID,
     DID_ID,
@@ -15,7 +15,7 @@ SELECT
     EVENT_TIMESTAMP
 FROM AUTOMOTIVE_DB.RAW.REPLACEMENT_DIAGNOSTICS;
 
-# Other way around to ensure that the migration was successful. Results should be empty if the migration was successful.
+-- Other way around to ensure that the migration was successful. Results should be empty if the migration was successful.
 SELECT
     ASSET_REF,
     DIAGNOSTIC_CODE,
