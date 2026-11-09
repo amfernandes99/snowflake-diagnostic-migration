@@ -1,4 +1,4 @@
--- This validates the migration of the legacy diagnostics table to the replacement diagnostics table --
+-- Presents the replacement diagnostic data with the legacy column names.
 
 SELECT
     ASSET_REF AS VEHICLE_ID,

@@ -5,4 +5,7 @@ sources:
     database: AUTOMOTIVE_DB
     schema: RAW
     tables:
+      - name: LEGACY_DIAGNOSTICS
+        description: "Diagnostic data from the legacy system, used as the reference for the migration tests."
       - name: REPLACEMENT_DIAGNOSTICS
+        description: "Diagnostic data from the replacement platform."

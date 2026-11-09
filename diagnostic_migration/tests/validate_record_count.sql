@@ -2,7 +2,7 @@
 
 SELECT
     (SELECT COUNT(*)
-     FROM AUTOMOTIVE_DB.RAW.LEGACY_DIAGNOSTICS)
+     FROM {{ source('raw', 'LEGACY_DIAGNOSTICS') }})
     -
     (SELECT COUNT(*)
      FROM {{ ref('replacement_diagnostics') }})

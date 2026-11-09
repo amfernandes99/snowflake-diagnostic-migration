@@ -24,6 +24,7 @@ I used a view so it always reflects the current replacement data without storing
 Declared in `models/_sources.yml` (source `raw`, schema `AUTOMOTIVE_DB.RAW`):
 
 - `REPLACEMENT_DIAGNOSTICS`: the replacement platform extract the model reads from.
+- `LEGACY_DIAGNOSTICS`: the legacy extract the tests compare against.
 
 ## Tests
 
